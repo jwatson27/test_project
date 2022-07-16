@@ -1,0 +1,13 @@
+services:
+  develop:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: develop
+    environment:
+      DISPLAY:
+    volumes:
+      - "/tmp/.X11-unix:/tmp/.X11-unix:rw"
+    init: true
+    user: ${FIXUID:-1000}:${FIXGID:-1000}
+
